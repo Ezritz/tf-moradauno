@@ -5,6 +5,9 @@ import '../css/Formulary.scss';
 export default function Formulary() {
     return (
         <div className="container">
+            <div className="banner">
+                <Banner />
+            </div>
             <div className="type-cont">
                 <label>Tipo de contrato</label>
                 <input
@@ -20,7 +23,7 @@ export default function Formulary() {
             </div>
            
            <div className="Geri">
-
+                <Instructive />
            </div>
             <form>
                 
