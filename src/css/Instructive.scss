@@ -1,0 +1,76 @@
+body{
+    background-color: #f6f6f6;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-size: 80%;
+}
+
+/* Escritorio extra grande */
+@media only screen and (min-width: 1200px){
+    body {
+		font-size:100%;
+	}
+}
+/* Escritorio grande */
+@media only screen and (min-width: 992px) and (max-width: 1199px){
+    body {
+		font-size:90%;
+	}
+}
+
+/* Escritorio pequeño / tablet */
+@media only screen and (min-width: 768px) and (max-width: 991px){
+    body {
+		font-size:80%;
+	}
+}
+
+/* Tablets y phablets */
+@media only screen and (min-width: 576px) and (max-width: 767px){
+    body {
+		font-size:70%;
+	}
+}
+
+/* Teléfonos */
+@media only screen and (max-width: 575px){
+    body {
+		font-size:90%;
+	}
+}
+
+
+section {
+    position: absolute;
+    left: 6em;
+    top: 275px;
+   
+}
+
+h1{
+    text-align: center;
+    font-family: Greycliff_b, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2.5em;
+    line-height: 1.9em;
+    color: #333;
+    }
+
+ul {
+    width: 428px;
+    text-align: center;
+    display:inline-table;
+    font-family: Greycliff_r, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.4em;
+    line-height: 31px;
+    color: rgba(0, 0, 0, 0.72);
+}
+
+.textPurple{
+    color: #5b1a6b;
+}
+
