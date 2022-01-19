@@ -1,8 +1,13 @@
+import Banner from  './Banner';
 import image01 from "../img/image01.png"
 import '../css/Files.scss';
 
 export default function Files() {
   return (
+    <>
+    <div>
+      <Banner/>
+    </div>
     <main className= "upload-files">
         
       <div className= "img-file">
@@ -12,5 +17,6 @@ export default function Files() {
 
       </div>
     </main>
+    </>
   );
 }
