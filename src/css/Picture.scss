@@ -1,0 +1,41 @@
+
+$color-background: #F6F6F6;
+$color-moradauno: #7E288B;
+$color-backCard: #FFFFFF;
+$font-all: Greycliff_r, sans-serif;
+
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 5%
+}
+.btn-nav {
+    border: none;
+    background: none;
+    font-family: $font-all;
+    font-size: 18px;
+    font-weight: bold;
+}
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.prev-img {
+    width: 200px;
+    height: 200px;
+}
+.card {
+    border: 2px solid $color-moradauno;
+    border-radius: 40px 0px 0px 0px;
+    width: 300px;
+    height: 330px;
+    text-align: center;
+    font-family: $font-all;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 4em;
+}
