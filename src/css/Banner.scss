@@ -7,19 +7,24 @@ font-family: Greycliff_b, sans-serif;
 .Banner {
     text-align: center;
     background-color: white;
-  
+    width: 1903px;
+    height: 108px;
+    left: 312px;
   }
   
-  .Banner-logo {
-    background-color: #f6f6f6;
+.Banner-logo {
+  position: absolute;
+  top: 30px;
+  width: 350px;
+  left: 312px;
   }
   
   .welcome {
     position: absolute;
     width: 170px;
     height: 29px;
-    left: 879px;
-    top: 54px;
+    left: 939px;
+    top: 25px;
     font-family: Greycliff_b, sans-serif;
     font-style: normal;
     font-weight: bold;
@@ -33,15 +38,15 @@ font-family: Greycliff_b, sans-serif;
     background: #FFFFFF;
     border: 2px solid #1ABBBF;
     box-sizing: border-box;
-    border-radius: 25px;
+    border-radius: 32px;
     position: absolute;
-    width: 170px;
-    height: 29px;
-    left: 1120px;
-    top: 67px;
+    width: 181px;
+    height: 56px;
+    //left: 1120px;
+    left: 1400px;
+    top: 30px;
     font-family: Greycliff_b, sans-serif;
     font-style: normal;
-    font-weight: bold;
     font-size: 22px;
     line-height: 25px;
     text-align: center;
@@ -54,5 +59,4 @@ font-family: Greycliff_b, sans-serif;
     align-items: center;
     justify-content: center;
     width: 58%;
-    margin-top: 2%;
   }
