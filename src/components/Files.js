@@ -4,6 +4,10 @@ import '../css/Files.scss';
 
 export default function Files() {
   return (
+    <>
+    <div>
+      <Banner/>
+    </div>
     <main className= "upload-files">
         <Banner/>
       <div className= "img-file">
@@ -13,5 +17,6 @@ export default function Files() {
 
       </div>
     </main>
+    </>
   );
 }
