@@ -1,11 +1,12 @@
 .upload-files{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-content: center;
     margin: auto;
+    width: 100%;
      
 }
-
 
 .img-upload {
     display:flex;
@@ -40,3 +41,6 @@
     color: #ffffff;
   }
   
+  .img-file{
+    margin: 2rem;
+  }

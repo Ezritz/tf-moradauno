@@ -1,4 +1,4 @@
-import Banner from  './Banner';
+import Banner from './Banner'
 import image01 from "../img/image01.png"
 import '../css/Files.scss';
 
@@ -9,7 +9,7 @@ export default function Files() {
       <Banner/>
     </div>
     <main className= "upload-files">
-        
+        <Banner/>
       <div className= "img-file">
         <img className="img-upload" src={image01} alt="img-upload"/>
       
