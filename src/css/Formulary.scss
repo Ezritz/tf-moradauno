@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 $color-border-inputs:#7E288B;
 $color-bc-inputs:#FFFFFF;
 $color-font-inputs: rgba(0, 0, 0, 0.32);
@@ -57,7 +57,6 @@ form{
         margin:8.5%;
         font-size:14px;
         font-family: $font-all;
-        font-weight: bold;
         color:$color-font-inputs;
     }
 }
