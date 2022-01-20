@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+$font-all:'Roboto', sans-serif;
 .upload-files{
     display: flex;
     flex-direction: column;
@@ -32,7 +34,8 @@
     height: 75px;
     // left: 647.84px;
     // top: 656.74px;
-    font-family: Greycliff_b, sans-serif;
+    font-family: $font-all;
+    font-weight: bold;
     font-size: 24px;
     line-height: 29px;
     text-align: center;
