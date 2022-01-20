@@ -5,9 +5,8 @@ import '../css/Files.scss';
 export default function Files() {
   return (
     <>
-    <div>
-      <Banner/>
-    </div>
+    <Banner/>
+    
     <main className= "upload-files">
         
       <div className= "img-file">
