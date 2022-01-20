@@ -1,4 +1,5 @@
 import '../css/Instructive.scss';
+import check from "../img/check.png";
 
 export default function Instructive () {
     
@@ -11,6 +12,9 @@ export default function Instructive () {
                     <li>Asegurate que la imágen a elegir  cumpla con el <span className='textPurple'>tamaño</span> indicado</li> <br/>
                     <li><span className='textPurple'>Listo</span>, puedes actualizar tus proyectos y mantenerlos en orden</li> 
                  </ul>
+                 <div>
+                    <img className='imgCheck' src={check} alt="logo" />
+                  </div>
             </section>   
     )
 }
