@@ -8,7 +8,7 @@ export default function Files() {
     <Banner/>
     
     <main className= "upload-files">
-       
+        
       <div className= "img-file">
         <img className="img-upload" src={image01} alt="img-upload"/>
       
