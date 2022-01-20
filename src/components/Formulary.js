@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import {useNavigate} from 'react-router-dom';
-import Select  from 'react-select'
 import Banner from "./Banner";
 import Instructive from "./Instructive";
 import "../css/Formulary.scss";
