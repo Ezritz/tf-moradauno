@@ -4,10 +4,8 @@ import '../css/Formulary.scss';
 
 export default function Formulary() {
     return (
-        <div className="container">
-            <div className="banner">
-                <Banner />
-            </div>
+        <main>
+            <Banner />
             <div className="type-cont">
                 <label>Tipo de contrato</label>
                 <input
@@ -21,15 +19,12 @@ export default function Formulary() {
                 />
                 <label>Termino</label>
             </div>
-           
+        <div className="container">
            <div className="Geri">
                 <Instructive />
            </div>
+           <div className='containerForm'>
             <form>
-                
-                <div className="folio">
-                    
-                </div>
                 <div className="formulary">
                     <label
                     className="label-4"
@@ -62,6 +57,8 @@ export default function Formulary() {
                     >Continuar</button>
                 </div>
             </form>
+            </div>
         </div>
+        </main>
     )
 }
