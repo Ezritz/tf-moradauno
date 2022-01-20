@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import {useNavigate} from 'react-router-dom';
 import Select  from 'react-select'
 import Banner from "./Banner";
 import Instructive from "./Instructive";
@@ -9,10 +10,11 @@ export default function Formulary() {
     const [folio, setFolio]=useState();
     const [contract, setContract] =useState('');
     const [nameAsesor, setNameAsesor] = useState('');
+    const nav= useNavigate();
 
-   const handleChangeContract =() =>{
-       
-
+   const handleSendSubmit =() =>{
+    nav('/down-imgs');
+        
    }
 
   return (
@@ -25,29 +27,11 @@ export default function Formulary() {
         </div>
         <div className="containerForm">
           <form>
-            <div className="type-cont">
-                <label 
-                for="first-cont">Tipo de contrato</label>
-                <input
-                id="first-cont"
-                name="1"
-                type="radio"
-                className="cont-start"
-                value="1"
-                />
-                <label 
-                for="end-cont">Inicio</label>
-                <input
-                id="end-cont" 
-                name="1"
-                className="cont-end" 
-                type="radio"
-                value="2"
-                />
-                <label>Termino</label>
-            </div>
+           
             <div className="formulary">
-              <label className="label-4">No. de Folio</label>
+            
+              <label 
+              className="label-4">No. de Folio</label>
               <input
               min="0"
               type="number"
@@ -71,7 +55,37 @@ export default function Formulary() {
                 placeholder="Nombre completo"
                 value={nameAsesor}
               ></input>
-              <button className="btn-continue">Continuar</button>
+                <div className="type-cont">
+                <label
+                className="label-type"
+                for="first-cont">Tipo de contrato</label>
+                <input
+                className="date-4"
+                id="first-cont"
+                name="1"
+                type="radio"
+                className="cont-start"
+                value="1"
+                />
+                <label
+                className="label-type" 
+                for="end-cont">Inicio</label>
+                <input
+                className="date-5"
+                id="end-cont" 
+                name="1"
+                className="cont-end" 
+                type="radio"
+                value="2"
+                />
+                <label
+                className="label-type" 
+                >Termino</label>
+                </div>
+                
+              <button 
+              className="btn-continue"
+              onClick={handleSendSubmit}>Continuar</button>
             </div>
           </form>
         </div>
