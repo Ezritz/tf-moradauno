@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { useState } from 'react';
-=======
 import { useState} from 'react';
->>>>>>> d5e2b60d1f8ca6be8ae58cfe2cfe35338812c3cd
 import {useNavigate} from 'react-router-dom';
 import {addData} from '../firebase/Firestore'
 //import Select  from 'react-select'
