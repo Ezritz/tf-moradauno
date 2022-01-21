@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import {useNavigate} from 'react-router-dom';
+import {addData} from '../firebase/Firestore'
+//import Select  from 'react-select'
 import Banner from "./Banner";
 import Instructive from "./Instructive";
 import "../css/Formulary.scss";
@@ -7,18 +9,20 @@ import "../css/Formulary.scss";
 export default function Formulary() {
     const [date, setDate]= useState('');
     const [folio, setFolio]=useState();
-    const [contract, setContract] =useState('');
+    // const [contract, setContract] =useState('');
     const [nameAsesor, setNameAsesor] = useState('');
     const [error, setError]=useState('');
     const nav= useNavigate();
 
-    const handleSendSubmit =() => {
-       if(folio!='' && date!= '' && nameAsesor!=''){
-        nav('/down-imgs');
-        
-       } else {
-        setError('Campo vacio')
-       }
+    const handleSendSubmit =(e) => {
+      e.preventDefault()
+      addData(folio,nameAsesor,date).then(()=> nav('/down-imgs'))
+      //  if(folio!='' && date!= '' && nameAsesor!=''){
+        // nav('/down-imgs');
+        // 
+      //  } else {
+        // setError('Campo vacio')
+      //  }
     }
 
 
@@ -63,7 +67,7 @@ export default function Formulary() {
                     <div className="type-cont">
                     <label
                     className="label-type"
-                    for="first-cont">Tipo de contrato</label>
+                    htmlFor="first-cont">Tipo de contrato</label>
                     <input
                     className="date-4"
                     id="first-cont"
@@ -74,7 +78,7 @@ export default function Formulary() {
                     /> 
                     <label
                     className="label-type" 
-                    for="end-cont">Inicio</label>
+                    htmlFor="end-cont">Inicio</label>
                     <input
                     className="date-5"
                     id="end-cont" 
