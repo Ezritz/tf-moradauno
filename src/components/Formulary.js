@@ -42,7 +42,7 @@ export default function Formulary() {
                 <label 
                 className="label-4">No. de Folio</label>
                 <input
-                className="inputFolio" 
+                className="inputFolio"
                 min="0"
                 type="number"
                 placeholder="No.Folio"
