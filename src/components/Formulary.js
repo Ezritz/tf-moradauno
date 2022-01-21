@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import {useNavigate} from 'react-router-dom';
 import {addData} from '../firebase/Firestore'
 //import Select  from 'react-select'
@@ -16,7 +16,11 @@ export default function Formulary() {
 
     const handleSendSubmit =(e) => {
       e.preventDefault()
-      addData(folio,nameAsesor,date).then(()=> nav('/down-imgs'))
+      addData(folio,nameAsesor,date).then(()=> {
+        nav('/down-imgs')
+        }).catch((error) => {
+        setError(error.message)
+        });
       //  if(folio!='' && date!= '' && nameAsesor!=''){
         // nav('/down-imgs');
         // 

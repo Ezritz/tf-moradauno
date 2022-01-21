@@ -10,8 +10,6 @@ function App (){
                     <Route path="/" element={<Formulary/>}/>
                     <Route path="/down-imgs" element={<Files/>}/>
                     <Route path="/prev-inventario" element={<GetImg/>}/>
-
-
             </Routes>
         </BrowserRouter>
     )
