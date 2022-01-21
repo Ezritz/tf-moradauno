@@ -9,7 +9,7 @@ export default function Files() {
       <Banner/>
     </div>
     <main className= "upload-files">
-        <Banner/>
+        
       <div className= "img-file">
         <img className="img-upload" src={image01} alt="img-upload"/>
       

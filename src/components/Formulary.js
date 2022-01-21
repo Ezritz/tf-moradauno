@@ -42,13 +42,14 @@ export default function Formulary() {
                 <label 
                 className="label-4">No. de Folio</label>
                 <input
+                className="inputFolio" 
                 min="0"
                 type="number"
                 placeholder="No.Folio"
                 onChange={(e)=> setFolio(e.target.value)}
                 value={folio}
                 ></input>
-                <label className="label-1">Fecha de captura</label>
+                <label className="label-1">Fecha de captura</label> <br/>
                 <input 
                 onChange={(e)=> setDate(e.target.value)}
                 className="date-1" 
@@ -56,7 +57,7 @@ export default function Formulary() {
                 value={date}
                 ></input>
                 
-                <label className="label-3">Nombre del Asesor</label>
+                <label className="label-3">Nombre del Asesor</label><br/>
                 <input
                     onChange={(e)=> setNameAsesor(e.target.value)}
                     className="date-3"
@@ -64,35 +65,6 @@ export default function Formulary() {
                     placeholder="Nombre completo"
                     value={nameAsesor}
                 ></input>
-                    <div className="type-cont">
-                    <label
-                    className="label-type"
-                    htmlFor="first-cont">Tipo de contrato</label>
-                    <input
-                    className="date-4"
-                    id="first-cont"
-                    name="1"
-                    type="radio"
-                    className="cont-start"
-                    value="1"
-                    /> 
-                    <label
-                    className="label-type" 
-                    htmlFor="end-cont">Inicio</label>
-                    <input
-                    className="date-5"
-                    id="end-cont" 
-                    name="1"
-                    className="cont-end" 
-                    type="radio"
-                    value="2"
-                    />
-                    <p>{error}</p>
-                    <label
-                    className="label-type" 
-                    >Termino</label>
-                    </div>
-                    
                 <button 
                 className="btn-continue"
                 >Continuar</button>
