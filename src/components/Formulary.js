@@ -39,7 +39,7 @@ export default function Formulary() {
     console.log('target', e.target);
     for(const i in files){
         console.log('targ: ', files[i])
-        AddImg(files[i],files[i].name).then(() =>{ console.log('succesfull')})
+        AddImg(files[i],files[i].name).then(() =>{nav('/down-imgs')})
 
        /* AddImg.snapshot.ref.getDownloadURL().then((url_img)=>{
             console.log('url', url_img)
