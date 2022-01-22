@@ -8,6 +8,10 @@ export const addData = (setFolio, setAsesor, setFecha) => db.collection('files-m
     date: new Date(),
 });
 
-export const AddImg = (ref, img) => storage.ref(`/morada/${ref.name}`).put(img);
+export const AddImg = (ref, img) => storage.ref(`/morada/${ref.name}`).put(img).then((snapshot)=>{
+    snapshot.ref.getDownloadURL().then((downloadURL) => {
+        console.log('File available at', downloadURL);
+    });
+});
 export const dataRef = db.collection('files-morada');
 
