@@ -9,6 +9,7 @@ import '../css/Files.scss';
 import image01 from "../img/image01.png"
 import {AddImg} from '../firebase/Firestore'
 import {storage} from '../firebase/Config';
+import Files from './Files';
 
 export default function Formulary() {
   const [date, setDate]= useState('');
@@ -20,6 +21,8 @@ export default function Formulary() {
   const nav= useNavigate();
   const [images, setImages] = useState([]);
   const [urls, setUrls] = useState([]);
+  const [progress,setProgress] = useState(0);
+  const [activeFiles, setActiveFiles] = useState('');
 
   const handleSendSubmit =(e) => {
     e.preventDefault()
@@ -62,6 +65,11 @@ export default function Formulary() {
     }
   };
 
+  const handleChangeToFiles = () => {
+    setActiveFiles('files')
+    
+  }
+
   const handleUpload = () => {
     const promises = [];
     images.map((image) => {
@@ -70,27 +78,27 @@ export default function Formulary() {
       uploadTask.on(
         "state_changed",
         
-        (error) => {
-          console.log(error);
-        },
         async () => {
           await storage
-            .ref("images")
+            .ref("morada")
             .child(image.name)
             .getDownloadURL()
-            .then((url) => {
+            .then((urls) => {
               setUrls((prevState) => [...prevState, urls]);
-              console.log('url', url)
             });
         }
       );
     });
 
     Promise.all(promises)
-      .then(() => alert("All images uploaded"))
+      .then(() => alert("All images uploaded"))//nav('.down-imgs'))
       .catch((err) => console.log(err));
+      setLoading(false)
   };
 
+  console.log("images: ", images);
+  console.log("urls", urls);
+  
 
 
 
@@ -125,13 +133,23 @@ export default function Formulary() {
                   {!loading && <button className="btn-upload-image"
                   > Seleccionar imagenes
                   </button>}
-                  {loading && <button className="btn-upload-image-2" onClick={handleUpload} 
+                  
+                  
+                  {loading && <button 
+                  className="btn-upload-image-2" 
+                  onClick={()=> {handleUpload(); handleChangeToFiles()}}
                   >Cargar imagenes
                   </button>}
-                  <img src={urls}></img>
+                  
                 </div>
+                
           </form>
+          
         </div>
+        {activeFiles==='files' && (
+          <Files urls={urls}/>
+        )}
+        
       </section>
     </main>
   );
