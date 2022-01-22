@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import Formulary from './components/Formulary'
+import Files from './components/Files'
+import GetImg from './components/Save-imgs/Get-imgs'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App (){
+    return(
+        <BrowserRouter>
+            <Routes>
+                    <Route path="/" element={<Formulary/>}/>
+                    <Route path="/down-imgs" element={<Files/>}/>
+                    <Route path="/prev-inventario" element={<GetImg/>}/>
+
+
+            </Routes>
+        </BrowserRouter>
+    )
 }
-
-export default App;
+export default App
