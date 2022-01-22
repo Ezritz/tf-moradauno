@@ -6,39 +6,46 @@ import '../css/Picture.scss';
 export default function Files() {
   const [collection, setCollection] = useState([]);
 
-
+ const docs=[];
   useEffect(() => {
-  const getCollection =  () => {  
+    const getCollection =  () => {  
       dataRef.onSnapshot((snapshot) => {
-        let docs = [];
+        
         snapshot.forEach((doc) => {
           docs.push({ ...doc.data(), id: doc.id })
-                    console.log(docs)
+             //console.log('id:',id)       
         });
         console.log(docs)
- 
+
         setCollection(docs)
       })
     };
-      getCollection();
-    }, []);
+    getCollection();
+  }, []);
+
+  console.log('aqui toy', collection)
+  console.log('folio: ', collection.id)
 
   return (
     <main className="main">
-            <Banner/>
-            <section className='principal'>
-            <button className="btn-nav"> Regresar al menu </button>
-           <div className="cards">
-              {collection.map(data => (
-                           <div className="card" key={data.id}>
-                 <p className="text-card1">{data.date}</p>
-                {/* <img className="prev-img" src="https://firebasestorage.googleapis.com/v0/b/totallook-1e8a8.appspot.com/o/mudarse-de-casa%201.png?alt=media&token=c8e8578a-15f2-4f11-8c53-243760a32fcd" alt="icon"/> */}
-                <p className="text-card2">{data.folio}</p>
-                </div>
+      <Banner/>
+      <section className='principal'>
+        <button className="btn-nav"> Regresar al menu </button>
+        <div className="cards">
+          {collection.map((data,i) => (
+            <div className="card" key={i}>
+              
+              <p className="text-card1">{data.id}</p>
+              <p className="text-card2">{data.folio}</p>
+              { <img className="prev-img" src={data.imgs} alt="icon"/> }
+              <p className="text-card2">{data.date.toDate().toLocaleString()}</p>
+              
 
-              ))} 
-           </div>
-           </section>
-        </main>                              
+            </div>
+
+          ))}
+        </div>
+      </section>
+    </main>                              
   );
 }
