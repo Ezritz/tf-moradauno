@@ -2,7 +2,7 @@ import Banner from './Banner'
 import '../css/Files.scss';
 
 
-export default function Files() {
+export default function Files({urls}) {
 
   
 
@@ -11,6 +11,10 @@ export default function Files() {
     
     <main className= "upload-files">
       <Banner/>
+      {/*urls.map((url,i)=>(
+        <img key={i}
+        src={url}></img>
+      ))*/}
       <form className= "img-file">
         
 
