@@ -37,17 +37,18 @@ export default function Formulary() {
     const files = e.target.files;
     console.log(e.target.files)
     console.log('target', e.target);
-    for(const i in files){
-        console.log('targ: ', files[i])
-        AddImg(files[i],files[i].name).then(() =>{ console.log('succesfull')})
-
+    // for(const i in files){
+        console.log('targ: ', files[0])
+        console.log("AQUII", files[0])
+        AddImg(files[0],files[0].name).then(() =>{ console.log('succesfull')})
+    
        /* AddImg.snapshot.ref.getDownloadURL().then((url_img)=>{
             console.log('url', url_img)
         })
         */
     
         // console.log(targ);
-    }
+    // }
     setLoading(true)
     
   }
