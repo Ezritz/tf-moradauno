@@ -1,5 +1,9 @@
 import 'firebase/firestore'
-import { db, storage } from "./Config";
+import { auth, db, storage } from "./Config";
+
+export const logIn = (email,password) => auth.signInWithEmailAndPassword(email, password);
+
+export const logOut = () => auth.signOut();
 
 export const addData = (setFolio, setUrls) => db.collection('files-morada').doc().set({
    folio:setFolio,

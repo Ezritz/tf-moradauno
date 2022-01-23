@@ -1,13 +1,12 @@
 import { useState, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {addData} from '../firebase/Firestore'
-import Banner from "./Banner";
 import Instructive from "./Instructive";
 import "../css/Formulary.scss";
 import '../css/Files.scss';
 import image01 from "../img/image01.png"
 import {storage} from '../firebase/Config';
-import Files from './Files';
+import { Banner } from './Banner';
 
 export default function Formulary() {
   const [folio, setFolio]=useState();
@@ -16,6 +15,7 @@ export default function Formulary() {
   const [images, setImages] = useState([]);
   const [urls, setUrls] = useState([]);
   const [activeFiles, setActiveFiles] = useState('');
+  const [error, setError]= useState('');
 
   useEffect(()=>{
     
@@ -40,54 +40,22 @@ export default function Formulary() {
               console.log('no se',urls)
               console.log('folio', folio, urls)
               addData(folio, urls).then(()=> nav('/down-imgs'))
-            });
+              
+            })
+            .catch(()=>{
+              setError('Es necesario tu número de folio')
+            })
         }
       );
     });
 
-    /*
-    Promise.all(promises)
-      .then(() => {
-        alert("All images uploaded")
-        
-      })//nav('.down-imgs'))
-      .catch((err) => console.log(err));
-      setLoading(false)
-    */
-    //  if(folio!='' && date!= '' && nameAsesor!=''){
-      // nav('/down-imgs');
-      // 
-    //  } else {
-      // setError('Campo vacio')
-    //  }
+    
     
   }
 
   
   console.log("images: ", images);
 
-  
-  
-  
-  /*
-    const handleAddImg= (e) => {
-      // const targ = e.target.files[0];
-      const files = e.target.files;
-      console.log(e.target.files)
-      console.log('target', e.target);
-      for(const i in files){
-          console.log('targ: ', files[i])
-        AddImg(files[i],files[i].name)//then(() =>{nav('/down-imgs')})
-        //AddImg.snapshot.ref.getDownloadURL().then((url_img)=>{
-         //     console.log('url', url_img)
-          //})
-          //
-      
-          // console.log(targ);
-      }
-      setLoading(true)
-    }
-  */
   const handleChange = (e) => {
     for (let i = 0; i < e.target.files.length; i++) {
       const newImage = e.target.files[i];
@@ -97,22 +65,11 @@ export default function Formulary() {
     }
   };
 
-  const handleChangeToFiles = () => {
-    setActiveFiles('files')
-    
-  }
-
-  
-
-  
-  
-
 
 
   return (
     <main>
-      <Banner />
-      
+      <Banner/>      
       <section className="container">
         <div className="Geri">
           <Instructive />
@@ -140,8 +97,8 @@ export default function Formulary() {
                   {!loading && <button className="btn-upload-image"
                   > Seleccionar imagenes
                   </button>}
-                  <img src={urls}/>
                   
+                  <p className="error">{error}</p>
                   {loading && <button 
                   className="btn-upload-image-2" 
                   onClick={handleSendSubmit}
@@ -153,9 +110,6 @@ export default function Formulary() {
           </form>
           
         </div>
-        {/*activeFiles==='files' && (
-          <Files urls={urls}/>
-        )*/}
         
       </section>
     </main>
