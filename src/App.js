@@ -1,5 +1,5 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import { useAuth } from './Hooks/useAuth'
+import { useAuth } from './hooks/useAuth'
 import Formulary from './components/Formulary'
 import Files from './components/Files'
 import GetImg from './components/Save-imgs/Get-imgs'
