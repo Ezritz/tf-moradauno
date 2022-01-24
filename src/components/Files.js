@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
-import { dataRef } from '../firebase/Firestore';
-import '../css/Picture.scss';
+import { dataRef, removed } from '../firebase/Firestore';
 import { Banner } from './Banner';
+import '../css/Picture.scss';
+import Modal from './Modal';
 
 export default function Files() {
   const [collection, setCollection] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
  const docs=[];
   useEffect(() => {
@@ -26,6 +28,16 @@ export default function Files() {
   console.log('aqui toy', collection)
   console.log('folio: ', collection.id)
 
+  const deleteImg = (id) => {
+    console.log(id)
+    removed(id).then(()=> alert('BORRADO'))
+  }
+  const comentModal= (id) => {
+    console.log(id)
+    setShowModal((visible)=> !visible)
+    
+  }
+
   return (
     <main className="main">
       <Banner/>
@@ -39,10 +51,17 @@ export default function Files() {
               <p className="text-card2">{data.folio}</p>
               { <img className="prev-img" src={data.imgs} alt="icon"/> }
               <p className="text-card2">{data.date.toDate().toLocaleString()}</p>
-              
-
+              <button onClick={()=>deleteImg(data.id)}
+              >Eliminar</button>
+              <button onClick={()=>comentModal(data.id)}
+              >Editar</button>
+              <Modal
+              showModal={showModal}
+              setShowModal={setShowModal}
+              id={data.id}
+              />
             </div>
-
+            
           ))}
         </div>
       </section>

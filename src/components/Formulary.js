@@ -6,16 +6,17 @@ import "../css/Formulary.scss";
 import '../css/Files.scss';
 import image01 from "../img/image01.png"
 import {storage} from '../firebase/Config';
-import { Banner } from './Banner';
+import { Banner, BannerLog } from './Banner';
+import NoUser from './NoUser';
 
-export default function Formulary() {
-  const [folio, setFolio]=useState();
+export default function Formulary(user) {
+  const [folio, setFolio]=useState('');
   const [loading, setLoading] = useState(false);
   const nav= useNavigate();
   const [images, setImages] = useState([]);
   const [urls, setUrls] = useState([]);
-  const [activeFiles, setActiveFiles] = useState('');
   const [error, setError]= useState('');
+
 
   useEffect(()=>{
     
@@ -54,7 +55,7 @@ export default function Formulary() {
   }
 
   
-  console.log("images: ", images);
+  console.log(user.user.email);
 
   const handleChange = (e) => {
     for (let i = 0; i < e.target.files.length; i++) {
@@ -66,52 +67,58 @@ export default function Formulary() {
   };
 
 
-
+if(user.user.email==='null'){
   return (
     <main>
-      <Banner/>      
-      <section className="container">
-        <div className="Geri">
-          <Instructive />
-        </div>
-        <div className="containerForm">
-          <form 
-          className="form">
-           
-                <div className="formulary">
-                
-                  <label 
-                  className="label-4">No. de Folio</label>
-                  <input
-                  className="inputFolio"
-                  min="0"
-                  type="number"
-                  placeholder="No.Folio"
-                  onChange={(e)=> setFolio(e.target.value)}
-                  value={folio}
-                  ></input>
-                  <img className="img-upload" src={image01} alt="img-upload"/>
-      
-                  {!loading && <input onChange={handleChange} 
-                  type="file"accept="image/png, image/jpeg, image/jpg" multiple/>}
-                  {!loading && <button className="btn-upload-image"
-                  > Seleccionar imagenes
-                  </button>}
-                  
-                  <p className="error">{error}</p>
-                  {loading && <button 
-                  className="btn-upload-image-2" 
-                  onClick={handleSendSubmit}
-                  >Cargar imagenes
-                  </button>}
-                  
-                </div>
-                
-          </form>
-          
-        </div>
-        
-      </section>
-    </main>
+    <NoUser/>
+  </main>
+  
   );
+}
+ return(
+  <main>
+  <Banner/>      
+  <section className="container">
+    <div className="Geri">
+      <Instructive />
+    </div>
+    <div className="containerForm">
+      <div 
+      className="form">
+       
+            <form className="formulary">
+            
+              <label 
+              className="label-4">No. de Folio</label>
+              <input onChange={(e)=> setFolio(e.target.value)}
+              className="inputFolio"
+              min="0"
+              type="number"
+              placeholder="No.Folio"
+              value={folio}
+              ></input>
+              <img className="img-upload" src={image01} alt="img-upload"/>
+  
+              {!loading && <input onChange={handleChange} 
+              type="file"accept="image/png, image/jpeg, image/jpg" multiple/>}
+              {!loading && <button className="btn-upload-image"
+              > Seleccionar imagenes
+              </button>}
+              
+              <p className="error">{error}</p>
+              {loading && <button 
+              className="btn-upload-image-2" 
+              onClick={handleSendSubmit}
+              >Cargar imagenes
+              </button>}
+              
+            </form>
+            
+      </div>
+      
+    </div>
+    
+  </section>
+</main>
+ ) 
 }

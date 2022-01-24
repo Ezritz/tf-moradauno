@@ -9,7 +9,14 @@ export const addData = (setFolio, setUrls) => db.collection('files-morada').doc(
    folio:setFolio,
    imgs:setUrls, 
    date: new Date(),
+   confirmacion: false,
+   descripcion: '',
 });
+
+export const updateData = (id,update) => db.collection('files-morada').doc(id).update({update});
+
+export const removed = (id) => db.collection('files-morada').doc(id).delete();
+
 
 export const AddImg = (ref, img) => storage.ref(`/morada/${ref.name}`).put(img).then((snapshot)=>{
     snapshot.ref.getDownloadURL().then((downloadURL) => {
