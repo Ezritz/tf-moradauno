@@ -7,17 +7,17 @@ import Modal from './Modal';
 export default function Files() {
   const [collection, setCollection] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const [selectModal, setSelectModal] = useState(null);
 
- const docs=[];
   useEffect(() => {
     const getCollection =  () => {  
       dataRef.onSnapshot((snapshot) => {
-        
+        const docs=[];
         snapshot.forEach((doc) => {
           docs.push({ ...doc.data(), id: doc.id })
              //console.log('id:',id)       
         });
-        console.log(docs)
+        // console.log(docs)
 
         setCollection(docs)
       })
@@ -25,14 +25,13 @@ export default function Files() {
     getCollection();
   }, []);
 
-  console.log('aqui toy', collection)
-  console.log('folio: ', collection.id)
 
   const deleteImg = (id) => {
     console.log(id)
     removed(id).then(()=> alert('BORRADO'))
   }
-  const comentModal= (id) => {
+  const comentModal= (data, id) => {
+    setSelectModal(data)
     console.log(id)
     setShowModal((visible)=> !visible)
     
@@ -50,19 +49,20 @@ export default function Files() {
               <p className="text-card1">{data.id}</p>
               <p className="text-card2">{data.folio}</p>
               { <img className="prev-img" src={data.imgs} alt="icon"/> }
-              <p className="text-card2">{data.date.toDate().toLocaleString()}</p>
+              <p className="text-card2">{data.folio}</p>
               <button onClick={()=>deleteImg(data.id)}
               >Eliminar</button>
               <button onClick={()=>comentModal(data.id)}
               >Editar</button>
-              <Modal
-              showModal={showModal}
-              setShowModal={setShowModal}
-              id={data.id}
-              />
             </div>
-            
           ))}
+          {selectModal && <Modal
+            showModal={showModal}
+            setShowModal={setShowModal}
+            selectModal={selectModal}
+            />
+
+          }
         </div>
       </section>
     </main>                              
