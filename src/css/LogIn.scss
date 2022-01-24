@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+$color-border-inputs:#7E288B;
+$color-bc-inputs:#FFFFFF;
+$color-font-inputs: rgba(0, 0, 0, 0.32);
+$font-all:'Roboto', sans-serif;
+
+.main-log{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center
+}
+    .form-logIn{
+    border: 3px solid $color-border-inputs;
+    width: 548px;
+    height: 486px;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+    margin-top: 4rem;
+    background: $color-bc-inputs;
+}
+.title-log{
+    font-family: $font-all;
+    color: $color-border-inputs;
+    margin-bottom: 1rem;
+}
+
+.label-log{
+    font-family: $font-all;
+    font-weight: bolder;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+.input-log{
+    border-radius: 10px;
+    background-color: $color-bc-inputs;
+    border: 1px solid $color-border-inputs;
+    text-align: center;
+    width: 60%;
+    height: 2em;
+    font-size:16px;
+    font-family: $font-all;
+    color:$color-font-inputs;
+    margin-bottom: 2rem;
+}

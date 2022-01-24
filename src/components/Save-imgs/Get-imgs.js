@@ -1,4 +1,4 @@
-import Banner from '../Banner'
+import { Banner } from '../Banner'
 import '../../css/Picture.scss'
 export default function GetImg () {
 
