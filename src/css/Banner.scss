@@ -9,13 +9,11 @@ $font-all:'Roboto', sans-serif;
   height: 108px;
   background: $color-background;
   display: flex;
-  flex-direction: row;
   justify-content: space-around;
   align-items: center;
 }
 
 .Banner-logo {
-
 top: 30px;
 width: 350px;
 left: 312px;
@@ -49,6 +47,7 @@ left: 312px;
   line-height: 25px;
   text-align: center;
   color: #1ABBBF;
+  cursor: pointer;
 }
 
 .Banner-header {
@@ -58,12 +57,12 @@ left: 312px;
   justify-content: center;
 }
 
-@media only screen and (min-width: 320px) and (max-width: 736px) and (orientation: portrait)
+@media only screen and (max-width: 1110px) 
 {
   .Banner-logo {
 
     top: 30px;
-    width: 250px;
+    width: 290px;
     left: 312px;
     }
 
@@ -71,19 +70,10 @@ left: 312px;
       display:none;
     }
 
-    /*.logOut {
-      background: #FFFFFF;
-      border: 2px solid #1ABBBF;
-      box-sizing: border-box;
-      border-radius: 32px;
-      width: 20%;
-      height: 15%;
-      font-family: $font-all;
-      font-weight: bolder;
-      font-style: normal;
-      font-size: 12px;
-      line-height: 25px;
-      text-align: center;
-      color: #1ABBBF;
-    } */
+    .logOut {
+      border-radius: 20px;
+      width: 120px;
+      height: 30px;
+      font-size: 15px;
+  }
 }

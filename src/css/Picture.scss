@@ -20,13 +20,16 @@ $font-all:'Roboto', sans-serif;
     font-family: $font-all;
     font-size: 18px;
     font-weight: bold;
+    margin-left: 55px;
+    text-decoration-line: underline;
 }
 .cards {
-    display: flex;
-    flex-wrap: wrap;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 6rem;
+    padding: 15px;
+    padding-top: 0;
+    margin: 2.5rem;
 }
 .prev-img {
     width: 200px;
