@@ -7,7 +7,7 @@ export default function GetImg () {
         <main className="main">
             <Banner/>
             <section className='principal'>
-            <button className="btn-nav"> Regresar al menu </button>
+            <button className="btn-nav"> Regresar al menú </button>
            <article className="cards">
            <div className="card">
                 <p className="text-card1">Inmueble</p>

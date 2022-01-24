@@ -22,7 +22,6 @@ $font-all:'Roboto', sans-serif;
   height: 275px;
   // left: 500px;
   // top: 200px;
-
 }
   
 input[type="file"] {
@@ -51,7 +50,7 @@ input[type="file"] {
     border-radius: 15px;
     background-color: #5b1a6b;
     color: #ffffff;
-    
+    cursor: pointer;
   }
   .btn-upload-image-2 {
     display:flex;
@@ -70,6 +69,7 @@ input[type="file"] {
     border-radius: 15px;
     background-color: #5b1a6b;
     color: #ffffff;
+    cursor: pointer;
     
   }
   
