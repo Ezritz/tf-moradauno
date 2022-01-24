@@ -5,7 +5,7 @@ export default function Modal ({showModal, setShowModal, id}){
     const [coment, setComent] = useState('');
 
     const handleSubmit = (e)=> {
-        console.log(e.target.value, id)
+        console.log(e.target.value, id, coment)
     }
 
 
