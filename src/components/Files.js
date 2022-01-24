@@ -9,6 +9,9 @@ export default function Files() {
   const [showModal, setShowModal] = useState(false);
   const [selectModal, setSelectModal] = useState(null);
 
+  const [folio, setFolio]= useState('');
+  
+
   useEffect(() => {
     const getCollection =  () => {  
       dataRef.onSnapshot((snapshot) => {
@@ -37,13 +40,22 @@ export default function Files() {
     
   }
 
+  
+  
   return (
     <main className="main">
       <Banner/>
       <section className='principal'>
         <button className="btn-nav"> Regresar al menu </button>
+        <input
+        type="text"
+        onChange={(e)=> setFolio(e.target.value)}
+        placeholder="Selecciona tu folio"
+        value={folio}
+        ></input>
         <div className="cards">
           {collection.map((data,i) => (
+            
             <div className="card" key={i}>
               
               <p className="text-card1">{data.id}</p>
@@ -54,7 +66,7 @@ export default function Files() {
               >Eliminar</button>
               <button onClick={()=>comentModal(data.id)}
               >Editar</button>
-            </div>
+            </div> 
           ))}
           {selectModal && <Modal
             showModal={showModal}
