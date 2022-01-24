@@ -8,11 +8,10 @@ export default function Files() {
   const [collection, setCollection] = useState([]);
   const [showModal, setShowModal] = useState(false);
 
- const docs=[];
   useEffect(() => {
     const getCollection =  () => {  
       dataRef.onSnapshot((snapshot) => {
-        
+        const docs=[];
         snapshot.forEach((doc) => {
           docs.push({ ...doc.data(), id: doc.id })
              //console.log('id:',id)       
