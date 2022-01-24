@@ -1,22 +1,31 @@
 import { useState } from "react";
+import 'firebase/firestore'
+import { db } from "../firebase/Config";
 import '../css/Modal.scss'
 import { updateData } from "../firebase/Firestore";
 
-export default function Modal ({showModal, setShowModal, selectModal= {descripcion:''}}){
-    const [coment, setComent] = useState(selectModal);
+export default function Modal ({showModal, setShowModal, selectModal}){
+    const [coment, setComent] = useState('');
 
 
   const handleText = (e) =>{
     
     setComent({ ...coment, [e.target.id]: e.target.value })
-    console.log({ ...coment, [e.target.id]: e.target.value })
+    console.log(selectModal)
+    
+    
   }
 
     const handleSubmit = (e)=> {
       e.preventDefault()
-        console.log(typeof(coment), coment)
-        // updateData(coment).then(()=> setShowModal((visible) => !visible) )
-        setShowModal((visible) => !visible)
+     
+     
+     
+     
+      updateData(selectModal).update({
+        descripcion:coment
+      }).then(()=> setShowModal((visible) => !visible))
+     
     }
 
 
