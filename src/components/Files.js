@@ -109,9 +109,9 @@ export default function Files() {
           (
             <div className="card" key={i}>
               <p className="text-card1">{data.id}</p>
-              <p className="text-card2">{data.folio}</p>
+              <p className="text-card2">Nº Folio: {data.folio}</p>
               { <img className="prev-img" src={data.imgs} alt="icon"/> }
-              <p className="text-card2">{data.folio}</p>
+              <p className="text-card2">Subido:{data.date.toDate().toLocaleString()}</p>
               <div className='btns'>
                 <input type="image" src={iconAddComent} id='btnAddComent' title = "Agregar comentario" onClick={()=>comentModal(data.id)} alt='Comentar'/> 
                 <input type="image" src={iconShowComent} id='btnShowComent' title = "Ver comentario" onClick={()=>handleSweet(data.descripcion.descripcion)} alt='Ver comentarios'/>
