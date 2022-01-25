@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
 import { dataRef, removed } from '../firebase/Firestore';
-import {useNavigate} from 'react-router-dom';
 import { Banner } from './Banner';
 import '../css/Picture.scss';
 import Modal from './Modal';
 import Swal from 'sweetalert2';
+// import iconDelete from "../img/iconDelete.png";
+// import iconAddComent from "../img/iconAddComent.png";
+// import iconShowComent from "../img/iconShowComent.png";
 import image from '../img/check.png';
+import {useNavigate} from 'react-router-dom';
 
 export default function Files() {
   const [collection, setCollection] = useState([]);
@@ -33,8 +36,20 @@ export default function Files() {
 
 
   const deleteImg = (id) => {
-    console.log(id)
-    removed(id).then(()=> alert('BORRADO'))
+    Swal.fire({
+      title: '¿Deseas eliminar la imagen?',
+      icon: 'warning',
+      iconColor: '#FF7457',
+      showCancelButton: true,
+      confirmButtonColor: '#1ABBBF',
+      cancelButtonColor: '#1ABBBF',
+      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Aceptar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        removed(id)
+      }
+    })
   }
   const comentModal= (data, id) => {
     setSelectModal(data)
@@ -90,12 +105,14 @@ export default function Files() {
               <p className="text-card2">{data.folio}</p>
               { <img className="prev-img" src={data.imgs} alt="icon"/> }
               <p className="text-card2">{data.folio}</p>
-              <button className='btns' onClick={()=>deleteImg(data.id)}
-              >Eliminar</button>
-              <button className='btns' onClick={()=>comentModal(data.id)}
-              >Editar</button>
-              <button onClick={()=>handleSweet(data.descripcion.descripcion)} > Ver</button>
-            </div> 
+              <div className='btns'>
+                <input type="image" src="{iconAddComent}" id='btnAddComent' title = "Agregar comentario" onClick={()=>comentModal(data.id)}/> 
+                <input type="image" src="{iconShowComent}" id='btnShowComent' title = "Ver comentario" onClick={()=>handleSweet(data.descripcion.descripcion)}/>
+                <input type="image" src="{iconDelete}" id='btnDelete' title = "Eliminar imagen" onClick={()=>deleteImg(data.id)}/>
+              </div> 
+            </div>
+          
+             
           ):null
           )}
           {selectModal && <Modal
