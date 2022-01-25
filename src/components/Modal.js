@@ -34,7 +34,7 @@ export default function Modal ({showModal, setShowModal, selectModal}){
           <div className="container-modal">
             <button className="btn-close" onClick={() => setShowModal((visible) => !visible)}>x</button>
            <form className="form-coment" onSubmit={handleSubmit} >
-             <textarea onChange={handleText} rows="15" maxLength="120"
+             <textarea onChange={handleText} rows="10" maxLength="90"
                 name="text-note" id="descripcion" placeholder="Añade un comentario sobre la foto">
               </textarea>
               <button type="submit" className="btn-add">Añadir</button>
