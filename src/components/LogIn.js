@@ -12,7 +12,14 @@ export default function LogIn() {
     const handleLogIn= (e) =>{
         e.preventDefault();
         console.log(email,password)
-        logIn(email,password).then(()=> navigate('/'))
+        logIn(email,password).then(()=> {
+          if(email=== 'inquilino@morada1.com'){
+            navigate('/down-imgs')
+          }
+          else if(email=== 'asesor@morada1.com') {
+            navigate('/')
+          }
+        })
         
     }
 
