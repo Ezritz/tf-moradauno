@@ -87,16 +87,17 @@ export default function Files() {
           <div className="div-search">
             <input
             className="input-search"
+            id= "input-search"
             type="text"
             onChange={(e)=> setFolio(e.target.value)}
             placeholder="Selecciona tu folio"
             value={folio}
             ></input>
-            <button className="btn-search" onClick={handleSearch}>Buscar</button>
+            <button className="btn-search" id= "btn-search" onClick={handleSearch}>Buscar</button>
           </div>
           
           <div className="div-type">
-            <label className="type-service">Inquilino</label>
+            <label className="type-service" id= "type-service">Inquilino</label>
             <input type="image" src={image} className="inquilino"></input>
           </div>
          
