@@ -80,3 +80,25 @@ input[type="file"] {
   .img-file{
     margin: 2rem;
   }
+
+  .btns{
+    border-radius: 5px;
+      width: 135px;
+      height: 30px;
+      font-size: 12px;
+      cursor: pointer;
+      margin: 1%;
+  }
+
+  @media only screen and (max-width: 1110px) {
+   .btn-upload-image, .btn-upload-image-2{
+    font-size: 18px;
+    width: 170px;
+    height: 70px;
+   }
+
+   .img-upload{
+    width: 250px;
+    height: 225px;
+   }
+}
