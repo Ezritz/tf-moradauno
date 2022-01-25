@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 $font-all:'Roboto', sans-serif;
+$color-border-inputs:#7E288B;
+$color-secundary: #1ABBBF;
+
 .upload-files{
     display: flex;
     flex-direction: column;
@@ -33,81 +36,170 @@ input[type="file"] {
   height: 75px;
   opacity: 0;
 }
-  .btn-upload-image {
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    width: 180px;
-    height: 75px;
-    // left: 647.84px;
-    // top: 656.74px;
-    font-family: $font-all;
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 29px;
-    text-align: center;
-    border-radius: 15px;
-    background-color: #5b1a6b;
-    color: #ffffff;
-    cursor: pointer;
-  }
-  .btn-upload-image-2 {
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    width: 180px;
-    height: 75px;
-    // left: 647.84px;
-    // top: 656.74px;
-    font-family: $font-all;
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 29px;
-    text-align: center;
-    border-radius: 15px;
-    background-color: #5b1a6b;
-    color: #ffffff;
-    cursor: pointer;
-    
-  }
+.btn-upload-image {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 180px;
+  height: 75px;
+  // left: 647.84px;
+  // top: 656.74px;
+  font-family: $font-all;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  border-radius: 15px;
+  background-color: #5b1a6b;
+  color: #ffffff;
+  cursor: pointer;
+}
+.btn-upload-image-2 {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 180px;
+  height: 75px;
+  // left: 647.84px;
+  // top: 656.74px;
+  font-family: $font-all;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  border-radius: 15px;
+  background-color: #5b1a6b;
+  color: #ffffff;
+  cursor: pointer;
   
-  .btn-upload-image-2:active, .btn-upload-image-1:active{
-    box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.25);
-    transform: translateY(3px);
 }
-  .img-file{
-    margin: 2rem;
+  
+.btn-upload-image-2:active, .btn-upload-image-1:active{
+  box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.25);
+  transform: translateY(3px);
+}
+.img-file{
+  margin: 2rem;
+}
+
+#btnDelete, #btnAddComent, #btnShowComent{
+  border-radius: 5px;
+    width: 25px;
+    height: 25px;
+    font-size: 12px;
+    cursor: pointer;
+    margin: 4%;
+    transition: transform .2s;
+}
+
+#btnDelete:hover, #btnAddComent:hover, #btnShowComent:hover{
+  transform: scale(1.5);
+}
+
+.btns{
+  margin-left: 55%;
+}
+
+  
+.type-service{
+  font-size: 18px;
+  font-family: $font-all;
+
+}
+.div-nav{
+  display: flex;
+  width: 100%;
+  padding: 0 20px 0 20px;
+  justify-content: space-between;
+}
+.inquilino{
+  background-image: url('../img/check.png');
+  width: 40px;
+  height: 40px;
+}
+
+.input-search{
+  width: 200px;
+  height: 2em;
+  border: 2px solid $color-border-inputs;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 14px;
+  font-family: $font-all;
+}
+
+.btn-search{
+  border-radius: 20px;
+  width: 90px;
+  height: 30px;
+  background-color:$color-secundary;
+  border:none;
+  color:#ffffff;
+  font-family: $font-all;
+  font-size: 16px;
+}
+
+.div-search{
+  margin-left: 10px ;
+}
+
+.div-type{
+  margin-right:10px;
+}
+
+@media only screen and (max-width: 1110px) {
+  .btn-upload-image, .btn-upload-image-2{
+  font-size: 18px;
+  width: 170px;
+  height: 70px;
   }
 
-  #btnDelete, #btnAddComent, #btnShowComent{
+  .img-upload{
+  width: 250px;
+  height: 225px;
+  }
+
+  .div-nav{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-around;
+  }
+  .type-service{
+    font-size: 14px;
+    font-family: $font-all;
+  
+  }
+  .inquilino{
+    background-image: url('../img/check.png');
+    width: 20px;
+    height: 20px;
+  }
+  .input-search{
+    width: 140px;
+    height: 2em;
+    border: 1px solid $color-border-inputs;
     border-radius: 5px;
-      width: 25px;
-      height: 25px;
-      font-size: 12px;
-      cursor: pointer;
-      margin: 4%;
-      transition: transform .2s;
+    text-align: center;
+    font-size: 10px;
+    font-family: $font-all;
   }
-
-  #btnDelete:hover, #btnAddComent:hover, #btnShowComent:hover{
-    transform: scale(1.5);
+  .btn-search{
+    border-radius: 20px;
+    width: 60px;
+    height: 20px;
+    background-color:$color-secundary;
+    border:none;
+    color:#ffffff;
+    font-family: $font-all;
+    font-size: 14px;
   }
-
-  .btns{
-    margin-left: 55%;
-  }
-
-  @media only screen and (max-width: 1110px) {
-   .btn-upload-image, .btn-upload-image-2{
-    font-size: 18px;
-    width: 170px;
-    height: 70px;
-   }
-
-   .img-upload{
-    width: 250px;
-    height: 225px;
-   }
 }
+
+/*
+@media only screen and (min-width: 370px) {
+  
+  
+}*/
