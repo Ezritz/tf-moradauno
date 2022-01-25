@@ -103,7 +103,8 @@ export default function Files() {
               <input type="image" src={iconDelete} id='btnDelete' title = "Eliminar imagen" onClick={()=>deleteImg(data.id)}/>
               </div> 
             </div>
-          ))}
+          ):null
+          )}
           {selectModal && <Modal
             showModal={showModal}
             setShowModal={setShowModal}
