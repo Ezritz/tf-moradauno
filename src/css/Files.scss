@@ -81,13 +81,22 @@ input[type="file"] {
     margin: 2rem;
   }
 
-  .btns{
+  #btnDelete, #btnAddComent, #btnShowComent{
     border-radius: 5px;
-      width: 135px;
-      height: 30px;
+      width: 25px;
+      height: 25px;
       font-size: 12px;
       cursor: pointer;
-      margin: 1%;
+      margin: 4%;
+      transition: transform .2s;
+  }
+
+  #btnDelete:hover, #btnAddComent:hover, #btnShowComent:hover{
+    transform: scale(1.5);
+  }
+
+  .btns{
+    margin-left: 55%;
   }
 
   @media only screen and (max-width: 1110px) {
