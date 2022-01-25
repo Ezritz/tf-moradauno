@@ -22,18 +22,21 @@ $font-all:'Roboto', sans-serif;
     position: relative;
 }
 
+.close-container {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 80%;
+}
 .btn-close {
-    position: absolute;
-    color: $color-secundary;
-    font-size: 61px;
+    color: #FF7457;
+    font-size: 3rem;
     border: none;
     background: none;
-    top: 3rem;
-    right: 3rem;
 }
 
 .modal.is-open{
     display: flex;
+    flex-direction: row-reverse;
 }
 
 .form-coment {
@@ -43,7 +46,7 @@ $font-all:'Roboto', sans-serif;
     justify-content: center;
     width: 100%;
     height: 100%;
-    background: #7e3c8899;
+    background: #803c88ed;
     border-radius: 15px;
     margin-top: 8%;
 }
@@ -53,7 +56,7 @@ $font-all:'Roboto', sans-serif;
     font-size: 30px;
     color: $color-background;
     width: 35%;
-    height: 7%;
+    height: 10%;
     padding: 2px;
     margin-bottom:5px ;
     background: $color-secundary;
@@ -64,12 +67,12 @@ $font-all:'Roboto', sans-serif;
     justify-content: space-around;
 }
 
-#text-coment {
+#descripcion {
     width: 80%;
     height: 75%;
     color: #939393;
     font-family: $font-all;
-    font-size: 32px;
+    font-size: 2rem;
     border-radius: 10px;
     margin-bottom: 5px;
     border: 2px solid $color-secundary;
