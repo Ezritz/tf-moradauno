@@ -38,3 +38,14 @@ ul {
     margin-bottom: 16%;
     margin-top: 5%;
 }
+@media only screen and (max-width: 1110px) 
+{
+    h1{
+        font-size: 150%;
+    }
+
+    ul{
+        font-size: 100%;
+        width: 250px;
+    }
+}

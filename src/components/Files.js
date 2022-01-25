@@ -3,6 +3,8 @@ import { dataRef, removed } from '../firebase/Firestore';
 import { Banner } from './Banner';
 import '../css/Picture.scss';
 import Modal from './Modal';
+import Swal from 'sweetalert2';
+
 
 export default function Files() {
   const [collection, setCollection] = useState([]);
@@ -40,8 +42,15 @@ export default function Files() {
     
   }
 
-  
-  
+  const handleSweet= (coment) => {
+    console.log(coment)
+    Swal.fire({
+      title: 'Descripción',
+      text: coment,
+      confirmButtonText: 'Cool'
+    })
+  }
+
   return (
     <main className="main">
       <Banner/>
@@ -62,11 +71,12 @@ export default function Files() {
               <p className="text-card2">{data.folio}</p>
               { <img className="prev-img" src={data.imgs} alt="icon"/> }
               <p className="text-card2">{data.folio}</p>
-              <button onClick={()=>deleteImg(data.id)}
+              <button className='btns' onClick={()=>deleteImg(data.id)}
               >Eliminar</button>
-              <button onClick={()=>comentModal(data.id)}
+              <button className='btns' onClick={()=>comentModal(data.id)}
               >Editar</button>
-            </div> 
+              <button onClick={()=>handleSweet(data.descripcion.descripcion)} > Ver</button>
+            </div>
           ))}
           {selectModal && <Modal
             showModal={showModal}
