@@ -4,9 +4,9 @@ import { Banner } from './Banner';
 import '../css/Picture.scss';
 import Modal from './Modal';
 import Swal from 'sweetalert2';
-// import iconDelete from "../img/iconDelete.png";
-// import iconAddComent from "../img/iconAddComent.png";
-// import iconShowComent from "../img/iconShowComent.png";
+import iconDelete from "../img/iconDelete.png";
+import iconAddComent from "../img/iconAddComent.png";
+import iconShowComent from "../img/iconShowComent.png";
 import image from '../img/check.png';
 import {useNavigate} from 'react-router-dom';
 
@@ -84,15 +84,22 @@ export default function Files() {
       <section className='principal'>
         <div className="div-nav">
           <button className="btn-nav" onClick={handleBack}> Volver </button>
-          <input
-          type="text"
-          onChange={(e)=> setFolio(e.target.value)}
-          placeholder="Selecciona tu folio"
-          value={folio}
-          ></input>
-          <button onClick={handleSearch}>Buscar</button>
-          <label className="type-service">Inquilino</label>
-          <img className="inquilino" src={image}></img>
+          <div className="div-search">
+            <input
+            className="input-search"
+            type="text"
+            onChange={(e)=> setFolio(e.target.value)}
+            placeholder="Selecciona tu folio"
+            value={folio}
+            ></input>
+            <button className="btn-search" onClick={handleSearch}>Buscar</button>
+          </div>
+          
+          <div className="div-type">
+            <label className="type-service">Inquilino</label>
+            <input type="image" src={image} className="inquilino"></input>
+          </div>
+         
           
         </div>
         <div className="cards">
@@ -107,9 +114,9 @@ export default function Files() {
               { <img className="prev-img" src={data.imgs} alt="icon"/> }
               <p className="text-card2">{data.folio}</p>
               <div className='btns'>
-                <input type="image" src="{iconAddComent}" id='btnAddComent' title = "Agregar comentario" onClick={()=>comentModal(data.id)}/> 
-                <input type="image" src="{iconShowComent}" id='btnShowComent' title = "Ver comentario" onClick={()=>handleSweet(data.descripcion.descripcion)}/>
-                <input type="image" src="{iconDelete}" id='btnDelete' title = "Eliminar imagen" onClick={()=>deleteImg(data.id)}/>
+                <input type="image" src={iconAddComent} id='btnAddComent' title = "Agregar comentario" onClick={()=>comentModal(data.id)}/> 
+                <input type="image" src={iconShowComent} id='btnShowComent' title = "Ver comentario" onClick={()=>handleSweet(data.descripcion.descripcion)}/>
+                <input type="image" src={iconDelete} id='btnDelete' title = "Eliminar imagen" onClick={()=>deleteImg(data.id)}/>
               </div> 
             </div>
 
