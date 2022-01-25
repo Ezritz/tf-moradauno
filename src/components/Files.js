@@ -51,6 +51,11 @@ export default function Files() {
     })
   }
 
+  const handleSearch=() => {
+    
+    console.log('aqui folio',folio)
+  }
+
   return (
     <main className="main">
       <Banner/>
@@ -62,8 +67,11 @@ export default function Files() {
         placeholder="Selecciona tu folio"
         value={folio}
         ></input>
+        <button onClick={handleSearch}>Buscar</button>
         <div className="cards">
-          {collection.map((data,i) => (
+          {collection.map((data,i) => 
+            folio === data.folio ? 
+          (
             
             <div className="card" key={i}>
               
@@ -76,8 +84,9 @@ export default function Files() {
               <button className='btns' onClick={()=>comentModal(data.id)}
               >Editar</button>
               <button onClick={()=>handleSweet(data.descripcion.descripcion)} > Ver</button>
-            </div>
-          ))}
+            </div> 
+          ):null
+          )}
           {selectModal && <Modal
             showModal={showModal}
             setShowModal={setShowModal}
