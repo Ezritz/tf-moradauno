@@ -50,9 +50,9 @@ export default function Files() {
               <p className="text-card2">{data.folio}</p>
               { <img className="prev-img" src={data.imgs} alt="icon"/> }
               <p className="text-card2">{data.folio}</p>
-              <button onClick={()=>deleteImg(data.id)}
+              <button className='btns' onClick={()=>deleteImg(data.id)}
               >Eliminar</button>
-              <button onClick={()=>comentModal(data.id)}
+              <button className='btns' onClick={()=>comentModal(data.id)}
               >Editar</button>
             </div>
           ))}
