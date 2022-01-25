@@ -13,7 +13,7 @@ export const addData = (setFolio, setUrls) => db.collection('files-morada').doc(
    descripcion: '',
 });
 
-export const updateData = (id,update) => db.collection('files-morada').doc(id).update({update});
+export const updateData = (id) => db.collection('files-morada').doc(id)
 
 export const removed = (id) => db.collection('files-morada').doc(id).delete();
 
