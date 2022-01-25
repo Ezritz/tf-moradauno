@@ -14,6 +14,9 @@ export default function Files() {
   const [showModal, setShowModal] = useState(false);
   const [selectModal, setSelectModal] = useState(null);
 
+  const [folio, setFolio]= useState('');
+  
+
   useEffect(() => {
     const getCollection =  () => {  
       dataRef.onSnapshot((snapshot) => {
@@ -65,13 +68,29 @@ export default function Files() {
     })
   }
 
+  const handleSearch=() => {
+    
+    console.log('aqui folio',folio)
+  }
+
   return (
     <main className="main">
       <Banner/>
       <section className='principal'>
+
         <button className="btn-nav"> Regresar al menú </button>
+        <input
+        type="text"
+        onChange={(e)=> setFolio(e.target.value)}
+        placeholder="Selecciona tu folio"
+        value={folio}
+        ></input>
+        <button onClick={handleSearch}>Buscar</button>
         <div className="cards">
-          {collection.map((data,i) => (
+          {collection.map((data,i) => 
+            folio === data.folio ? 
+          (
+            
             <div className="card" key={i}>
               
               <p className="text-card1">{data.id}</p>

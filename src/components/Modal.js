@@ -32,8 +32,11 @@ export default function Modal ({showModal, setShowModal, selectModal}){
     return showModal ? (
         <section className="modal">
           <div className="container-modal">
-            <button className="btn-close" onClick={() => setShowModal((visible) => !visible)}>x</button>
+                       
            <form className="form-coment" onSubmit={handleSubmit} >
+           <div className="close-container">
+            <button className="btn-close" onClick={() => setShowModal((visible) => !visible)}>x</button>
+            </div>
              <textarea onChange={handleText} rows="10" maxLength="90"
                 name="text-note" id="descripcion" placeholder="Añade un comentario sobre la foto">
               </textarea>
