@@ -5,7 +5,6 @@ import Files from './components/Files'
 import GetImg from './components/Save-imgs/Get-imgs'
 import LogIn from './components/LogIn'
 
-
 function App (){
 
      const { user } = useAuth();

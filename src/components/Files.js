@@ -4,12 +4,18 @@ import { Banner } from './Banner';
 import '../css/Picture.scss';
 import Modal from './Modal';
 import Swal from 'sweetalert2';
-
+import iconDelete from "../img/iconDelete.png";
+import iconAddComent from "../img/iconAddComent.png";
+import iconShowComent from "../img/iconShowComent.png";
+import image from '../img/check.png';
+import {useNavigate} from 'react-router-dom';
 
 export default function Files() {
   const [collection, setCollection] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [selectModal, setSelectModal] = useState(null);
+  const [folio, setFolio]= useState('');
+  const nav= useNavigate();
 
   useEffect(() => {
     const getCollection =  () => {  
@@ -17,11 +23,12 @@ export default function Files() {
         const docs=[];
         snapshot.forEach((doc) => {
           docs.push({ ...doc.data(), id: doc.id })
-             //console.log('id:',id)       
+            //console.log('id:',id)       
         });
-        // console.log(docs)
+         console.log(docs)
 
         setCollection(docs)
+        
       })
     };
     getCollection();
@@ -29,8 +36,20 @@ export default function Files() {
 
 
   const deleteImg = (id) => {
-    console.log(id)
-    removed(id).then(()=> alert('BORRADO'))
+    Swal.fire({
+      title: '¿Deseas eliminar la imagen?',
+      icon: 'warning',
+      iconColor: '#FF7457',
+      showCancelButton: true,
+      confirmButtonColor: '#1ABBBF',
+      cancelButtonColor: '#1ABBBF',
+      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Aceptar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        removed(id)
+      }
+    })
   }
   const comentModal= (data, id) => {
     setSelectModal(data)
@@ -44,30 +63,59 @@ export default function Files() {
     Swal.fire({
       title: 'Descripción',
       text: coment,
+      confirmButtonColor: '#1ABBBF',
       confirmButtonText: 'Cool'
     })
   }
+
+  const handleSearch=() => {
+    
+    console.log('aqui folio',folio)
+  }
+
+  const handleBack = () => {
+    nav('/');
+  }
+
 
   return (
     <main className="main">
       <Banner/>
       <section className='principal'>
-        <button className="btn-nav"> Regresar al menu </button>
+        <div className="div-nav">
+          <button className="btn-nav" onClick={handleBack}> Volver </button>
+          <input
+          type="text"
+          onChange={(e)=> setFolio(e.target.value)}
+          placeholder="Selecciona tu folio"
+          value={folio}
+          ></input>
+          <button onClick={handleSearch}>Buscar</button>
+          <label className="type-service">Inquilino</label>
+          <img className="inquilino" src={image}></img>
+          
+        </div>
         <div className="cards">
-          {collection.map((data,i) => (
+          {collection.map((data,i) => 
+            folio === data.folio ? 
+          (
+        
             <div className="card" key={i}>
               
               <p className="text-card1">{data.id}</p>
               <p className="text-card2">{data.folio}</p>
               { <img className="prev-img" src={data.imgs} alt="icon"/> }
-              <p className="text-card2">Publicado:{data.date.toDate().toLocaleString()}</p>
-              <button onClick={  ()=>deleteImg(data.id) }
-              >Eliminar</button>
-              <button onClick={()=>comentModal(data.id)}
-              >Editar</button>
-              <button onClick={()=>handleSweet(data.descripcion.descripcion)} > Ver</button>
+              <p className="text-card2">{data.folio}</p>
+              <div className='btns'>
+                <input type="image" src="{iconAddComent}" id='btnAddComent' title = "Agregar comentario" onClick={()=>comentModal(data.id)}/> 
+                <input type="image" src="{iconShowComent}" id='btnShowComent' title = "Ver comentario" onClick={()=>handleSweet(data.descripcion.descripcion)}/>
+                <input type="image" src="{iconDelete}" id='btnDelete' title = "Eliminar imagen" onClick={()=>deleteImg(data.id)}/>
+              </div> 
             </div>
-          ))}
+
+
+          ):null
+          )}
           {selectModal && <Modal
             showModal={showModal}
             setShowModal={setShowModal}

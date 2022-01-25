@@ -22,7 +22,6 @@ $font-all:'Roboto', sans-serif;
   height: 275px;
   // left: 500px;
   // top: 200px;
-
 }
   
 input[type="file"] {
@@ -51,7 +50,7 @@ input[type="file"] {
     border-radius: 15px;
     background-color: #5b1a6b;
     color: #ffffff;
-    
+    cursor: pointer;
   }
   .btn-upload-image-2 {
     display:flex;
@@ -70,6 +69,7 @@ input[type="file"] {
     border-radius: 15px;
     background-color: #5b1a6b;
     color: #ffffff;
+    cursor: pointer;
     
   }
   
@@ -80,3 +80,34 @@ input[type="file"] {
   .img-file{
     margin: 2rem;
   }
+
+  #btnDelete, #btnAddComent, #btnShowComent{
+    border-radius: 5px;
+      width: 25px;
+      height: 25px;
+      font-size: 12px;
+      cursor: pointer;
+      margin: 4%;
+      transition: transform .2s;
+  }
+
+  #btnDelete:hover, #btnAddComent:hover, #btnShowComent:hover{
+    transform: scale(1.5);
+  }
+
+  .btns{
+    margin-left: 55%;
+  }
+
+  @media only screen and (max-width: 1110px) {
+   .btn-upload-image, .btn-upload-image-2{
+    font-size: 18px;
+    width: 170px;
+    height: 70px;
+   }
+
+   .img-upload{
+    width: 250px;
+    height: 225px;
+   }
+}
