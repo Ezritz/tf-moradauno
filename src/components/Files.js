@@ -9,7 +9,6 @@ import iconAddComent from "../img/iconAddComent.png";
 import iconShowComent from "../img/iconShowComent.png";
 import image from '../img/check.png';
 import {useNavigate} from 'react-router-dom';
-
 export default function Files() {
   const [collection, setCollection] = useState([]);
   const [showModal, setShowModal] = useState(false);
@@ -92,7 +91,7 @@ export default function Files() {
           ></input>
           <button onClick={handleSearch}>Buscar</button>
           <label className="type-service">Inquilino</label>
-          <img className="inquilino" src={image}></img>
+          <img className="inquilino" src={image} alt='check'></img>
           
         </div>
         <div className="cards">
@@ -107,9 +106,9 @@ export default function Files() {
               { <img className="prev-img" src={data.imgs} alt="icon"/> }
               <p className="text-card2">{data.folio}</p>
               <div className='btns'>
-                <input type="image" src="{iconAddComent}" id='btnAddComent' title = "Agregar comentario" onClick={()=>comentModal(data.id)}/> 
-                <input type="image" src="{iconShowComent}" id='btnShowComent' title = "Ver comentario" onClick={()=>handleSweet(data.descripcion.descripcion)}/>
-                <input type="image" src="{iconDelete}" id='btnDelete' title = "Eliminar imagen" onClick={()=>deleteImg(data.id)}/>
+                <input type="image" src={iconAddComent} id='btnAddComent' title = "Agregar comentario" onClick={()=>comentModal(data.id)} alt='Comentar'/> 
+                <input type="image" src={iconShowComent} id='btnShowComent' title = "Ver comentario" onClick={()=>handleSweet(data.descripcion.descripcion)} alt='Ver comentarios'/>
+                <input type="image" src={iconDelete} id='btnDelete' title = "Eliminar imagen" onClick={()=>deleteImg(data.id)} alt='eliminar'/>
               </div> 
             </div>
 
