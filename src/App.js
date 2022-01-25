@@ -14,9 +14,9 @@ function App (){
         <BrowserRouter>
             <Routes>
                     <Route path="/" element={<Formulary user={user}/>}/>
-                    <Route path="/logIn" element={<LogIn/>}/>
+                    <Route path="/logIn" element={<LogIn />}/>
                     <Route path="/down-imgs" element={<Files/>}/>
-                    <Route path="/prev-inventario" element={<GetImg/>}/>
+                    {/* <Route path="/prev-inventario" element={<GetImg/>}/> */}
             </Routes>
         </BrowserRouter>
     )

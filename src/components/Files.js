@@ -9,7 +9,6 @@ import iconAddComent from "../img/iconAddComent.png";
 import iconShowComent from "../img/iconShowComent.png";
 import image from '../img/check.png';
 import {useNavigate} from 'react-router-dom';
-
 export default function Files() {
   const [collection, setCollection] = useState([]);
   const [showModal, setShowModal] = useState(false);
@@ -84,6 +83,7 @@ export default function Files() {
       <section className='principal'>
         <div className="div-nav">
           <button className="btn-nav" onClick={handleBack}> Volver </button>
+
           <div className="div-search">
             <input
             className="input-search"
@@ -107,17 +107,16 @@ export default function Files() {
           {collection.map((data,i) => 
             folio === data.folio ? 
           (
-        
             <div className="card" key={i}>
-              
               <p className="text-card1">{data.id}</p>
               <p className="text-card2">{data.folio}</p>
               { <img className="prev-img" src={data.imgs} alt="icon"/> }
               <p className="text-card2">{data.folio}</p>
               <div className='btns'>
-                <input type="image" src={iconAddComent} id='btnAddComent' title = "Agregar comentario" onClick={()=>comentModal(data.id)}/> 
-                <input type="image" src={iconShowComent} id='btnShowComent' title = "Ver comentario" onClick={()=>handleSweet(data.descripcion.descripcion)}/>
-                <input type="image" src={iconDelete} id='btnDelete' title = "Eliminar imagen" onClick={()=>deleteImg(data.id)}/>
+                <input type="image" src={iconAddComent} id='btnAddComent' title = "Agregar comentario" onClick={()=>comentModal(data.id)} alt='Comentar'/> 
+                <input type="image" src={iconShowComent} id='btnShowComent' title = "Ver comentario" onClick={()=>handleSweet(data.descripcion.descripcion)} alt='Ver comentarios'/>
+                <input type="image" src={iconDelete} id='btnDelete' title = "Eliminar imagen" onClick={()=>deleteImg(data.id)} alt='eliminar'/>
+
               </div> 
             </div>
 
