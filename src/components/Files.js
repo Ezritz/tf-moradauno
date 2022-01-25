@@ -83,24 +83,30 @@ export default function Files() {
       <section className='principal'>
         <div className="div-nav">
           <button className="btn-nav" onClick={handleBack}> Volver </button>
-          <input
-          type="text"
-          onChange={(e)=> setFolio(e.target.value)}
-          placeholder="Selecciona tu folio"
-          value={folio}
-          ></input>
-          <button onClick={handleSearch}>Buscar</button>
-          <label className="type-service">Inquilino</label>
-          <img className="inquilino" src={image} alt='check'></img>
+
+          <div className="div-search">
+            <input
+            className="input-search"
+            type="text"
+            onChange={(e)=> setFolio(e.target.value)}
+            placeholder="Selecciona tu folio"
+            value={folio}
+            ></input>
+            <button className="btn-search" onClick={handleSearch}>Buscar</button>
+          </div>
+          
+          <div className="div-type">
+            <label className="type-service">Inquilino</label>
+            <input type="image" src={image} className="inquilino"></input>
+          </div>
+         
           
         </div>
         <div className="cards">
           {collection.map((data,i) => 
             folio === data.folio ? 
           (
-        
             <div className="card" key={i}>
-              
               <p className="text-card1">{data.id}</p>
               <p className="text-card2">{data.folio}</p>
               { <img className="prev-img" src={data.imgs} alt="icon"/> }
@@ -109,6 +115,7 @@ export default function Files() {
                 <input type="image" src={iconAddComent} id='btnAddComent' title = "Agregar comentario" onClick={()=>comentModal(data.id)} alt='Comentar'/> 
                 <input type="image" src={iconShowComent} id='btnShowComent' title = "Ver comentario" onClick={()=>handleSweet(data.descripcion.descripcion)} alt='Ver comentarios'/>
                 <input type="image" src={iconDelete} id='btnDelete' title = "Eliminar imagen" onClick={()=>deleteImg(data.id)} alt='eliminar'/>
+
               </div> 
             </div>
 
