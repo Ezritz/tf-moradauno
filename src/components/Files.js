@@ -77,10 +77,8 @@ export default function Files() {
     <main className="main">
       <Banner/>
       <section className='principal'>
-<<<<<<< HEAD
+
         <button className="btn-nav"> Regresar al menú </button>
-=======
-        <button className="btn-nav"> Regresar al menu </button>
         <input
         type="text"
         onChange={(e)=> setFolio(e.target.value)}
@@ -88,7 +86,6 @@ export default function Files() {
         value={folio}
         ></input>
         <button onClick={handleSearch}>Buscar</button>
->>>>>>> f6c55dfd475a29e4433021ff202bf04ee719b577
         <div className="cards">
           {collection.map((data,i) => 
             folio === data.folio ? 
@@ -100,24 +97,14 @@ export default function Files() {
               <p className="text-card2">{data.folio}</p>
               { <img className="prev-img" src={data.imgs} alt="icon"/> }
               <p className="text-card2">{data.folio}</p>
-<<<<<<< HEAD
              <div className='btns'>
               <input type="image" src={iconAddComent} id='btnAddComent' title = "Agregar comentario" onClick={()=>comentModal(data.id)}/> 
               <input type="image" src={iconShowComent} id='btnShowComent' title = "Ver comentario" onClick={()=>handleSweet(data.descripcion.descripcion)}/>
               <input type="image" src={iconDelete} id='btnDelete' title = "Eliminar imagen" onClick={()=>deleteImg(data.id)}/>
               </div> 
             </div>
-          ))}
-=======
-              <button className='btns' onClick={()=>deleteImg(data.id)}
-              >Eliminar</button>
-              <button className='btns' onClick={()=>comentModal(data.id)}
-              >Editar</button>
-              <button onClick={()=>handleSweet(data.descripcion.descripcion)} > Ver</button>
-            </div> 
           ):null
           )}
->>>>>>> f6c55dfd475a29e4433021ff202bf04ee719b577
           {selectModal && <Modal
             showModal={showModal}
             setShowModal={setShowModal}
