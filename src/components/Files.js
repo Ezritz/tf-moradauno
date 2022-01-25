@@ -60,8 +60,8 @@ export default function Files() {
               <p className="text-card1">{data.id}</p>
               <p className="text-card2">{data.folio}</p>
               { <img className="prev-img" src={data.imgs} alt="icon"/> }
-              <p className="text-card2">{data.folio}</p>
-              <button onClick={()=>deleteImg(data.id)}
+              <p className="text-card2">Publicado:{data.date.toDate().toLocaleString()}</p>
+              <button onClick={  ()=>deleteImg(data.id) }
               >Eliminar</button>
               <button onClick={()=>comentModal(data.id)}
               >Editar</button>
