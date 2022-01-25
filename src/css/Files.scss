@@ -141,6 +141,11 @@ input[type="file"] {
   font-size: 16px;
 }
 
+#input-search, #type-service{
+  margin-right: 8px;
+}
+
+
 .div-search{
   margin-left: 10px ;
 }
@@ -165,8 +170,18 @@ input[type="file"] {
     display: flex;
     flex-direction: column;
     width: 100%;
-    justify-content: space-around;
+    justify-content: center;
   }
+
+  .div-search,{
+    margin-left: 30px;
+    margin-bottom: 5px;
+  }
+
+  .div-type{
+    margin-left: 70px;
+  }
+
   .type-service{
     font-size: 14px;
     font-family: $font-all;
