@@ -63,6 +63,7 @@ export default function Files() {
     Swal.fire({
       title: 'Descripción',
       text: coment,
+      confirmButtonColor: '#1ABBBF',
       confirmButtonText: 'Cool'
     })
   }
@@ -111,8 +112,8 @@ export default function Files() {
                 <input type="image" src="{iconDelete}" id='btnDelete' title = "Eliminar imagen" onClick={()=>deleteImg(data.id)}/>
               </div> 
             </div>
-          
-             
+
+
           ):null
           )}
           {selectModal && <Modal
